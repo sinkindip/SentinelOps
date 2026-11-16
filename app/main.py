@@ -1,4 +1,9 @@
 from fastapi import FastAPI
+from app.db.session import engine, Base
+from app.db import models
+
+# Create database tables on startup
+Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
     title="SentinelOps API",
@@ -8,4 +13,8 @@ app = FastAPI(
 
 @app.get("/health")
 def health_check():
-    return {"status": "healthy", "service": "SentinelOps Core Engine"}
+    return {
+        "status": "healthy",
+        "service": "SentinelOps Core Engine",
+        "database": "connected"
+    }
