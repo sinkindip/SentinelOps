@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+
+# Environment & Secrets
+.env
+*.pem
+*.key
+
+# Database & Storage
+*.sqlite3
+data/evidence_vault/*
+!data/evidence_vault/.gitkeep
+
+# OS files
+.DS_Store
+Thumbs.db
